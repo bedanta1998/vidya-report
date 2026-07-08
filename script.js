@@ -157,6 +157,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const percentage = ((currentSlideIndex - 1) / (totalSlides - 1)) * 100;
     progressBar.style.width = `${percentage}%`;
 
+    // Toggle Header Logos
+    const logoIitg = document.getElementById('logo-iitg');
+    const logoCet = document.getElementById('logo-cet');
+    if (logoIitg && logoCet) {
+      if (currentSlideIndex === 1) {
+        logoIitg.style.display = 'flex';
+        logoCet.style.display = 'none';
+      } else {
+        logoIitg.style.display = 'none';
+        logoCet.style.display = 'flex';
+      }
+    }
+
     const sidebarItems = Array.from(sidebarList.querySelectorAll('.sidebar-item'));
     sidebarItems.forEach((item, idx) => {
       item.classList.remove('active', 'visited');
